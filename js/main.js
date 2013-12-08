@@ -14,14 +14,19 @@ $(function()
 {
     // Populate left menu
     app.departments.forEach(function(department) {
-        $('#menu-list').append('<li><a href="' + app.slugify(department) + '">' + department + '<span class="right-arrow">&rarr;</span></a></li>');
+        var slug = app.slugify(department);
+        $('#menu-list').append('<li><a class="menu-list-link" id="link-' + slug + '" href="#' + slug + '">' + department + '<span class="right-arrow">&rarr;</span></a></li>');
     });
 
-    // $('#menu-list>li').hover(function(e) {
-    //     $(this.children[0].children[0]).css('visibility: visible');
-    // }, function(e) {
-    //     $(this.children[0].children[0]).hide();
-    // });
+    $('.menu-list-link').hover(function(e) {
+        var child = this.children[0],
+            $child = $(child);
+        $child.show()
+    }, function(e) {
+        var child = this.children[0],
+            $child = $(child);
+        $child.hide();
+    });
 
     queue()
         .defer(d3.csv, "data/2012_General_Fund_Budget_Expenditures_v1.csv")

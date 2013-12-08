@@ -141,8 +141,8 @@ nav a {
 }
 
 .right-arrow {
-    padding-left: 12px;
-    visibility: hidden;
+    padding-left: 10px;
+    display: none;
 }
 
 
