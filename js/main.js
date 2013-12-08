@@ -101,6 +101,9 @@ function renderTopVendors(dept) {
 
 function renderTopJobs(dept) {
     $(".salaries-table table").html("");
+    $(".salary-dist").html("");
+
+    /* Salary Table*/
    var filteredData = _.filter(app.payrollData, function(d) { return d["Department Title"] == dept; });
    var positionGroups = _.groupBy(filteredData, function(d) { return d["Job Class Title"]; });
 
@@ -118,6 +121,49 @@ function renderTopJobs(dept) {
         $(".salaries-table table").append('<tr><td>' + position.positionName + '</td><td>$' + numberWithCommas(Math.round(position.avg_salary)) + '</td></tr>');
     });
 
+    /* Salary dist*/
+    var positionSalaries = _.map(filteredData, function(position) { return position['Regular Pay']; }).sort(function(a,b) { return a - b;});
+
+    var margin = {top: 0, right: 0, bottom: 0, left: 0},
+        width = 475 - margin.left - margin.right,
+        height = 200 - margin.top - margin.bottom;
+
+    var x = d3.scale.linear()
+        .domain([0, positionSalaries.length])
+        .range([0, width]);
+
+    // Generate a histogram using twenty uniformly-spaced bins.
+
+
+    var y = d3.scale.linear()
+        .domain([0, d3.max(positionSalaries, function(d) { return d; })])
+        .range([height, 0]);
+
+    var xAxis = d3.svg.axis()
+        .scale(x)
+        .orient("bottom");
+
+    var svg = d3.select(".salary-dist").append("svg")
+        .attr("width", width + margin.left + margin.right)
+        .attr("height", height + margin.top + margin.bottom)
+      .append("g")
+        .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+    var bar = svg.selectAll(".bar")
+        .data(positionSalaries)
+      .enter().append("g")
+        .attr("class", "bar")
+        .attr("transform", function(d, i) { return "translate(" + x(i) + ", " + y(d) + ")" ; });
+
+    bar.append("rect")
+        .attr("x", 1)
+        .attr("width", x(1))
+        .attr("height", function(d) { return height - y(d); });
+
+    svg.append("g")
+        .attr("class", "x axis")
+        .attr("transform", "translate(0," + height + ")")
+        .call(xAxis);    
 }
 
 // Used to form anchor hashes
@@ -169,6 +215,9 @@ $(function()
     $(".department").on("click", function(e) {
         var $currentTarget = $(e.currentTarget);
         var dept = $currentTarget.attr("data-department-name");
+
+        $("#department-name").text(dept);
+
         renderExpendChart(dept);
         renderTopVendors(dept);
         renderTopJobs(dept);
