@@ -55,7 +55,7 @@ textarea {
 }
 @font-face {
 	font-family: 'Nexa Bold';
- src: url(../fonts/Nexa Bold.otf);
+    src: url(../fonts/Nexa Bold.otf);
 }
 /*#container {
     margin: 0 auto;
@@ -98,8 +98,8 @@ nav h1 {
 	font-size: 1em;
 	/*line-height: 145%;*/
 	color: #000;	
-    font-family: 'Nexa Bold';
-    /*font-family: 'Helvetica Neue', Helvetica, sans-serif;*/
+    /*font-family: 'Nexa Bold';*/
+    font-family: 'Helvetica Neue', Helvetica, sans-serif;
     letter-spacing: -0.5px;
     font-size: 26px;
 }
