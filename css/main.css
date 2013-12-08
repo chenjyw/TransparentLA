@@ -128,6 +128,7 @@ nav a {
 	/* background-color: #666; */
 	margin-top: 133px;
 	margin-right: 5%;
+    position: relative;
 }
 #columnOne h1, #columnTwo h1 {
 	font-size: 1.618em;
@@ -142,7 +143,7 @@ nav a {
 	width: 38%;
 	/*background-color: #999;*/
 	float: left;
-	}
+}
 #title {
 	font-family: 'Nexa Bold', 'Helvetica', sans-serif;
 	font-size: 40px;
@@ -157,7 +158,7 @@ nav a {
 }
 
 text.expend-dept, text.expend-percent {
-	position: absolute;
+	position: relative;
 	z-index: 1000;
 	font-weight: 100;
 }
@@ -194,6 +195,14 @@ td {
 
 h1 {
     padding-left: 0;
+}
+
+#department-name {
+    position: absolute;
+    top: -32px;
+    font-size: 26px;
+    font-weight: thin;
+
 }
 
 
