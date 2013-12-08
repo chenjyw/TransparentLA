@@ -130,12 +130,16 @@ nav a {
 	margin-right: 5%;
 }
 #columnOne h1, #columnTwo h1 {
-	font-size: 1em;
+	font-size: 1.618em;
 	padding: 10px;
 }
+#columnTwo h1 {
+    margin-top: 0;
+}
+
 #columnTwo {
 	width: 38%;
-	background-color: #999;
+	/*background-color: #999;*/
 	float: left;
 	}
 #title {
@@ -166,13 +170,17 @@ div.expenditures-chart h1 {
     font-size: 1.618em;
 }
 
-div.vendors-table td {
+div.salaries-table td, div.vendors-table td {
     border-bottom: 1px #000 dotted;
     padding-bottom: 5px;
     line-height: 145%;
 }
 
-div.vendors-table tr:nth-child(even) {
+table {
+    width: 100%;
+}
+
+div.salaries-table tr:nth-child(even), div.vendors-table tr:nth-child(even) {
     background: #F2F2F2;
 }
 
