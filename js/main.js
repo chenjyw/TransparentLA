@@ -2,6 +2,10 @@ app = {};
 
 app.departments = ["Aging", "Fire", "Information Technology Agency", "Los Angeles Convention Center", "Police", "Public Works - Street Services", "Transportation", "Zoo"];
 
+function updateExpendChart(d3Obj, newData) {
+    d3Obj.data([newData]);
+}
+
 $(function()
 {
     queue()
@@ -12,54 +16,73 @@ $(function()
 
     function dataLoaded(error, expenditures, payroll, checkbook) {
 
-        var expendChartData = expenditures,
-            initialExpendChartData = _.filter(expendChartData, function(d) { return d.department_name == "Aging"; });
+        app.expendChartData = expenditures;
+        app.currentExpendChartData = _.filter(app.expendChartData, function(d) { return d.department_name == "Los Angeles Convention Center"; });
+        app.currentExpendChartDataTotal = _.reduce(_.map(app.currentExpendChartData, function(d) { return +d.total_expenditures; }), function(p, v) { return p + v;}, 0);
 
-        var initialExpendChartGroups = _.groupBy(initialExpendChartData, function(d) { return d.account_name; });
-        app.chartValues = _.map(initialExpendChartGroups, function(group) { return _.reduce(group, function(p, v) { return p + v; }, 0); });
+        var w = 300,
+            h = 300,
+            r = Math.min(w, h) / 2,
+            labelr = r - 55, // radius for label anchor
+            color = d3.scale.category20(),
+            donut = d3.layout.pie(),
+            arc = d3.svg.arc().innerRadius(r * .55).outerRadius(r);
 
+        var vis = d3.select(".expenditures-chart")
+          .append("svg:svg")
+            .data([app.currentExpendChartData])
+            .attr("width", w + 200)
+            .attr("height", h + 100);
 
-        // var w = 400,
-        //     h = 400,
-        //     r = Math.min(w, h) / 2,
-        //     labelr = r + 30, // radius for label anchor
-        //     color = d3.scale.category20(),
-        //     donut = d3.layout.pie(),
-        //     arc = d3.svg.arc().innerRadius(r * .6).outerRadius(r);
+        var arcs = vis.selectAll("g.arc")
+            .data(donut.value(function(d) { return d.total_expenditures; }))
+          .enter().append("svg:g")
+            .attr("class", "arc")
+            .attr("transform", "translate(" + (r + 125) + "," + (r + 30) + ")");
 
-        // var vis = d3.select("body")
-        //   .append("svg:svg")
-        //     .data([data])
-        //     .attr("width", w + 150)
-        //     .attr("height", h);
+        arcs.append("svg:path")
+            .attr("fill", function(d, i) { return color(i); })
+            .attr("d", arc);
 
-        // var arcs = vis.selectAll("g.arc")
-        //     .data(donut.value(function(d) { return d.val }))
-        //   .enter().append("svg:g")
-        //     .attr("class", "arc")
-        //     .attr("transform", "translate(" + (r + 30) + "," + r + ")");
+        arcs.append("svg:text")
+            .attr("transform", function(d) {
+                var c = arc.centroid(d),
+                    x = c[0],
+                    y = c[1],
+                    // pythagorean theorem for hypotenuse
+                    h = Math.sqrt(x*x + y*y);
+                return "translate(" + (x/h * labelr) +  ',' +
+                   (y/h * labelr) +  ")";
+            })
+            .attr("dy", ".35em")
+            .attr("text-anchor", function(d) {
+                // are we past the center?
+                return (d.endAngle + d.startAngle)/2 > Math.PI ?
+                    "end" : "start";
+            })
+            .text(function(d, i) {
+                return d.value/app.currentExpendChartDataTotal > 0.05 ? d.data.account_name : '';
+            });
 
-        // arcs.append("svg:path")
-        //     .attr("fill", function(d, i) { return color(i); })
-        //     .attr("d", arc);
-
-        // arcs.append("svg:text")
-        //     .attr("transform", function(d) {
-        //         var c = arc.centroid(d),
-        //             x = c[0],
-        //             y = c[1],
-        //             // pythagorean theorem for hypotenuse
-        //             h = Math.sqrt(x*x + y*y);
-        //         return "translate(" + (x/h * labelr) +  ',' +
-        //            (y/h * labelr) +  ")"; 
-        //     })
-        //     .attr("dy", ".35em")
-        //     .attr("text-anchor", function(d) {
-        //         // are we past the center?
-        //         return (d.endAngle + d.startAngle)/2 > Math.PI ?
-        //             "end" : "start";
-        //     })
-        //     .text(function(d, i) { return d.value.toFixed(2); });
+        arcs.append("svg:text")
+            .attr("transform", function(d) {
+                var c = arc.centroid(d),
+                    x = c[0],
+                    y = c[1],
+                    // pythagorean theorem for hypotenuse
+                    h = Math.sqrt(x*x + y*y);
+                return "translate(" + (x/h * labelr) +  ',' +
+                   (y/h * labelr) +  ")";
+            })
+            .attr("dy", "23px")
+            .attr("text-anchor", function(d) {
+                // are we past the center?
+                return (d.endAngle + d.startAngle)/2 > Math.PI ?
+                    "end" : "start";
+            })
+            .text(function(d, i) {
+                return d.value/app.currentExpendChartDataTotal > 0.05 ? Math.round(d.value/app.currentExpendChartDataTotal * 100) + "%" : '';
+            });
     }
 
     // Smooth scrolling
