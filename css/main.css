@@ -104,7 +104,7 @@ nav h1 {
     font-size: 26px;
 }
 nav a {
-	color: #333;
+	color: #64656A;
 	text-decoration: none;
     font-size: 18px;
 	/*font-family: Arial, Helvetica, sans-serif;*/
@@ -131,7 +131,8 @@ nav a {
 }
 #columnOne h1, #columnTwo h1 {
 	font-size: 1.618em;
-	padding: 10px;
+	padding-top: 10px;
+    padding-bottom: 10px;
 }
 #columnTwo h1 {
     margin-top: 0;
@@ -173,6 +174,7 @@ div.expenditures-chart h1 {
 div.salaries-table td, div.vendors-table td {
     border-bottom: 1px #000 dotted;
     padding-bottom: 5px;
+    padding-top: 5px;
     line-height: 145%;
 }
 
@@ -184,9 +186,15 @@ div.salaries-table tr:nth-child(even), div.vendors-table tr:nth-child(even) {
     background: #F2F2F2;
 }
 
+td {
+    font-size: 1em;
+    color: #64656A;
+}
 
 
-
+h1 {
+    padding-left: 0;
+}
 
 
 /* ==========================================================================
