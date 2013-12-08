@@ -12,7 +12,10 @@ textarea {
 
 body {
     font-size: 1em;
+    font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
     line-height: 1.4;
+    background: #EEE;
+    width: 100%;
 }
 
 ::-moz-selection {
@@ -64,9 +67,43 @@ textarea {
     color:black;
 }
 
+@font-face {
+    font-family: 'Nexa Bold';
+    src: url(../fonts/Nexa Bold.otf);
+}
 
+/*#container {
+    margin: 0 auto;
+    width: 1200px;
+}*/
 
+/*#logo {
+    float: right;
+}*/
 
+.row {
+    width: 1200px;
+    margin: 0 auto;
+    padding-top: 10px;
+    padding-bottom: 10px;
+}
+
+header {
+    margin-top: 25px;
+    /*border-bottom: 1px solid #AAA;*/
+}
+
+#title {
+    font-family: 'Nexa Bold', 'Helvetica', sans-serif;
+    font-size: 40px;
+    background: -webkit-linear-gradient(#000, #CCC);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+#main {
+
+}
 
 
 
