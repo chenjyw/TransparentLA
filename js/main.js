@@ -48,6 +48,7 @@ function renderExpendChart(dept) {
             return (d.endAngle + d.startAngle)/2 > Math.PI ?
                 "end" : "start";
         })
+        .attr("class", "expend-dept")
         .text(function(d, i) {
             return d.value/app.currentExpendChartDataTotal > 0.05 ? d.data.account_name : '';
         });
@@ -68,6 +69,7 @@ function renderExpendChart(dept) {
             return (d.endAngle + d.startAngle)/2 > Math.PI ?
                 "end" : "start";
         })
+        .attr("class", "expend-percent")
         .text(function(d, i) {
             return d.value/app.currentExpendChartDataTotal > 0.05 ? Math.round(d.value/app.currentExpendChartDataTotal * 100) + "%" : '';
         });
