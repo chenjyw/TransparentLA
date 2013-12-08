@@ -99,6 +99,27 @@ function renderTopVendors(dept) {
 
 }
 
+function renderTopJobs(dept) {
+    $(".salaries-table table").html("");
+   var filteredData = _.filter(app.payrollData, function(d) { return d["Department Title"] == dept; });
+   var positionGroups = _.groupBy(filteredData, function(d) { return d["Job Class Title"]; });
+
+   var positionAvgs = _.map(positionGroups, function(values, position) {
+        var positionAmounts = _.map(values, function(position) { return +position['Regular Pay']; }),
+            positionTotal = _.reduce(positionAmounts, function(p, v) { return p + v; }, 0),
+            positionAvg = positionTotal / values.length;
+
+        return {positionName: position, avg_salary: positionAvg};
+   });
+    var rankedPositions = _.sortBy(positionAvgs, function(position) { return position.avg_salary; }).reverse().slice(0,10);
+
+
+    rankedPositions.forEach(function(position) {
+        $(".salaries-table table").append('<tr><td>' + position.positionName + '</td><td>$' + numberWithCommas(Math.round(position.avg_salary)) + '</td></tr>');
+    });
+
+}
+
 // Used to form anchor hashes
 app.slugify = function(text) {
     return text
@@ -140,6 +161,7 @@ $(function()
 
         renderExpendChart("Aging");
         renderTopVendors("Aging");
+        renderTopJobs("Aging");
 
 
     }
@@ -149,6 +171,7 @@ $(function()
         var dept = $currentTarget.attr("data-department-name");
         renderExpendChart(dept);
         renderTopVendors(dept);
+        renderTopJobs(dept);
         e.preventDefault();
     });
 
