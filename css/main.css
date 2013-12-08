@@ -100,7 +100,7 @@ nav h1 {
 	color: #000;	
     /*font-family: 'Nexa Bold';*/
     font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    letter-spacing: -0.5px;
+    /*letter-spacing: -0.5px;*/
     font-size: 26px;
 }
 nav a {
@@ -190,11 +190,14 @@ div.salaries-table tr:nth-child(even), div.vendors-table tr:nth-child(even) {
 td {
     font-size: 1em;
     color: #64656A;
+    padding-left: 10px;
+    padding-right: 10px;
 }
 
 
 h1 {
     padding-left: 0;
+    font-weight: 300;
 }
 
 #department-name {
@@ -202,7 +205,9 @@ h1 {
     top: -32px;
     font-size: 26px;
     font-weight: thin;
-
+    border-bottom: 1px dotted #333;
+    width: 100%;
+    padding-bottom: 5px;
 }
 
 
