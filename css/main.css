@@ -121,11 +121,16 @@ nav a {
 }
 #columnOne {
 	min-height: 688px;
+	min-width: 350px;
 	width: 25%;
 	float: left;
-	background-color: #666;
-	margin-top: 4.875em;
+	/* background-color: #666; */
+	margin-top: 133px;
 	margin-right: 5%;
+}
+#columnOne h1, #columnTwo h1 {
+	font-size: 1em;
+	padding: 10px;
 }
 #columnTwo {
 	width: 38%;
@@ -141,11 +146,19 @@ nav a {
 }
 
 .right-arrow {
-    padding-left: 12px;
-    visibility: hidden;
+    padding-left: 10px;
+    display: none;
 }
 
-
+text.expend-dept, text.expend-percent {
+	position: absolute;
+	z-index: 1000;
+	font-weight: 100;
+}
+div.expenditures-chart {
+	position: relative;
+	left:-100px;
+}
 
 
 
