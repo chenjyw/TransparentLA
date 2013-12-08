@@ -129,8 +129,8 @@ nav a {
 	margin-right: 5%;
 }
 #columnOne h1, #columnTwo h1 {
+	font-size: 1em;
 	padding: 10px;
-	background-color: #999;
 }
 #columnTwo {
 	width: 38%;
