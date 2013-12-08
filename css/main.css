@@ -121,11 +121,16 @@ nav a {
 }
 #columnOne {
 	min-height: 688px;
+	min-width: 350px;
 	width: 25%;
 	float: left;
-	background-color: #666;
-	margin-top: 4.875em;
+	/* background-color: #666; */
+	margin-top: 133px;
 	margin-right: 5%;
+}
+#columnOne h1, #columnTwo h1 {
+	padding: 10px;
+	background-color: #999;
 }
 #columnTwo {
 	width: 38%;
@@ -145,7 +150,15 @@ nav a {
     visibility: hidden;
 }
 
-
+text.expend-dept, text.expend-percent {
+	position: absolute;
+	z-index: 1000;
+	font-weight: 100;
+}
+div.expenditures-chart {
+	position: relative;
+	left:-100px;
+}
 
 
 
