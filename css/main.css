@@ -8,7 +8,7 @@ html, button, input, select, textarea {
 body {
 	font-size: 1em;
 	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
-	line-height: 1.4;
+	/*line-height: 1.4;*/
 	width: 100%;
 	background-color: #FFF;
 }
@@ -79,31 +79,45 @@ header {
 	width: 24%;
 	margin-right: 4%;
 }
+
 #navWrapper{
-	margin-top: 1.81em;
+	margin-top: 6em;
 	margin-right: 1.56em;
 	margin-left: 1.56em;
 	width: 100%;
-	
-	
-	}
-	
+
+}
+
+ul {
+    padding-left: 20px;
+}
+
 nav h1 {
-	font-family: "Arial Black", Gadget, sans-serif;
+	/*font-family: "Arial Black", Gadget, sans-serif;*/
 	font-size: 1em;
-	line-height: 145%;
+	/*line-height: 145%;*/
 	color: #000;	
-	}
+    font-family: 'Nexa Bold';
+    /*font-family: 'Helvetica Neue', Helvetica, sans-serif;*/
+    letter-spacing: -0.5px;
+    font-size: 26px;
+}
 nav a {
 	color: #333;
 	text-decoration: none;
-	font-family: Arial, Helvetica, sans-serif;
-	text-align: left;		
-		}
+    font-size: 18px;
+	/*font-family: Arial, Helvetica, sans-serif;*/
+	/*text-align: left;*/
+    /*font-family: 'Helvetica Neue', Helvetica, sans-serif;*/
+    line-height: 32px;
+    letter-spacing: -0.5px;
+}
 #logo {
 	float: right;
 	margin-top: 1.75em;
 	margin-right: 1.56em;
+    height: 126px;
+    width: 377px;
 }
 #columnOne {
 	min-height: 688px;
@@ -125,9 +139,11 @@ nav a {
 	-webkit-background-clip: text;
 	-webkit-text-fill-color: transparent;
 }
-#main {
-}
 
+.right-arrow {
+    padding-left: 12px;
+    visibility: hidden;
+}
 
 
 
