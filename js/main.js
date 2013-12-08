@@ -85,7 +85,7 @@ $(function()
 {
     // Populate left menu
     app.departments.forEach(function(department) {
-        $('#menu-list').append('<li><a href="' + app.slugify(department) + '">' + department + '<span class="right-arrow">&rarr;</span></a></li>');
+        $('#menu-list').append('<li><a href="" class="department" data-department-name="' + department + '">' + department + '<span class="right-arrow">&rarr;</span></a></li>');
     });
 
     // $('#menu-list>li').hover(function(e) {
@@ -111,6 +111,7 @@ $(function()
     $(".department").on("click", function(e) {
         var $currentTarget = $(e.currentTarget);
         renderExpendChart($currentTarget.attr("data-department-name"));
+        e.preventDefault();
     });
 
     // Smooth scrolling
