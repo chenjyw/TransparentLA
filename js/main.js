@@ -87,8 +87,10 @@ $(function()
 {
     // Populate left menu
     app.departments.forEach(function(department) {
-        var slug = app.slugify(department);
-        $('#menu-list').append('<li><a href="" id="link-' + slug + '" class="department menu-list-link" data-department-name="' + department + '">' + department + '<span class="right-arrow">&rarr;</span></a></li>');
+        $('#menu-list').append('\
+            <li>\
+                <a href="" class="department menu-list-link" data-department-name="' + department + '">' + department + '<span class="right-arrow">&rarr;</span></a>\
+            </li>');
     });
 
     $('.menu-list-link').hover(function(e) {
