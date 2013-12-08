@@ -12,9 +12,10 @@
 
 # THANKS
 
-    <name>
+    Hack for LA
 
 # TECHNOLOGY COLOPHON
 
     HTML5, CSS3
     jQuery, Modernizr
+    D3.js
