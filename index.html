@@ -3,28 +3,31 @@
 <!--[if IE 8]>         <html class="no-js lt-ie9"> <![endif]-->
 <!--[if gt IE 8]><!-->
 <html class="no-js"> <!--<![endif]-->
-<head>
-    <meta charset="utf-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
-    <title></title>
-    <meta name="description" content="">
-    <meta name="viewport" content="width=device-width">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+        <title></title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width">
 
-	<!-- CSS -->
-    <link rel="stylesheet" href="css/normalize.min.css">
-    <link rel="stylesheet" href="css/main.css">
-</head>
+    	<!-- CSS -->
+        <link rel="stylesheet" href="css/normalize.min.css">
+        <link rel="stylesheet" href="css/main.css">
+        
+		<!-- Load Modernizr up here; other JS at end of body -->
+        <script src="js/vendor/modernizr-2.6.2.min.js"></script>
+    </head>
 
-<body>
-    <!--[if lt IE 7]>
-        <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
-    <![endif]-->
+    </head>
+    <body>
+        <!--[if lt IE 7]>
+            <p class="chromeframe">You are using an <strong>outdated</strong> browser. Please <a href="http://browsehappy.com/">upgrade your browser</a> or <a href="http://www.google.com/chromeframe/?redirect=true">activate Google Chrome Frame</a> to improve your experience.</p>
+        <![endif]-->
 
-	<!-- CONTAINER -->    	
 	<header>
 		<div class="row">
-			<span id="title">TRANSPARENT LA</span>
-			<!-- <embed id="logo" src="img/logo.svg" width="500" height="200" type="image/svg+xml" /> -->
+			<!-- <span id="title">TRANSPARENT LA</span> -->
+			<embed id="logo" src="img/logo.svg" width="500" height="200" type="image/svg+xml" />
 		</div>
 	</header>
 
@@ -52,16 +55,18 @@
 
 	<footer>
 		<div class="row">
-			&copy; 2013 Transparent LA LLC
+			&copy; 2013 Transparent LA
 		</div>
 	</footer>
 
+	<!-- JavaScript -->
     <script src="//ajax.googleapis.com/ajax/libs/jquery/1.10.1/jquery.min.js"></script>
     <script>window.jQuery || document.write('<script src="js/vendor/jquery-1.10.1.min.js"><\/script>')</script>
-    <script src="js/vendor/modernizr-2.6.2.min.js"></script>
     <script src="js/vendor/d3.v3.min.js"></script>
-    <script src="js/vendor/jquery-ui.min.js"></script>
+    <!--<script src="js/vendor/jquery-ui.min.js"></script>-->
+    <script src="js/vendor/queue.v1.min.js"></script>
+    <script src="js/vendor/crossfilter.min.js"></script>
     <script src="js/main.js"></script>
-    <script src="js/plugins.js"></script>
+    <!--<script src="js/plugins.js"></script>-->
 </body>
 </html>
