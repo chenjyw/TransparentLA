@@ -1,0 +1,20 @@
+# humanstxt.org/
+# The humans responsible & technology colophon
+
+# TEAM
+
+    Jerome Chen       (@jywchen)
+    Lindsay Hong      (@lindsay_hong_)
+    Pierre Villanueva (@twit_herr)
+    Robert Martin     (@welfareyacht)
+    Torrey Nommesen   (@torrey)
+
+
+# THANKS
+
+    <name>
+
+# TECHNOLOGY COLOPHON
+
+    HTML5, CSS3
+    jQuery, Modernizr
