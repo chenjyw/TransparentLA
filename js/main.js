@@ -1,3 +1,7 @@
+app = {};
+
+app.departments = ["Aging", "Fire", "Information Technology Agency", "Los Angeles Convention Center", "Police", "Public Works - Street Services", "Transportation", "Zoo"];
+
 $(function()
 {
     queue()
@@ -7,11 +11,13 @@ $(function()
         .await(dataLoaded);
 
     function dataLoaded(error, expenditures, payroll, checkbook) {
-        var expendituresFilter = crossfilter(expenditures),
-            payrollFilter = crossfilter(payroll),
-            checkbookFilter = crossfilter(checkbook);
 
-        window.departmentGroup = expendituresFilter.dimension(function(d) { return d.department_name; });
+        var expendChartData = expenditures,
+            initialExpendChartData = _.filter(expendChartData, function(d) { return d.department_name == "Aging"; });
+
+        var initialExpendChartGroups = _.groupBy(initialExpendChartData, function(d) { return d.account_name; });
+        app.chartValues = _.map(initialExpendChartGroups, function(group) { return _.reduce(group, function(p, v) { return p + v; }, 0); });
+
 
         // var w = 400,
         //     h = 400,
