@@ -70,11 +70,30 @@ function renderExpendChart(dept) {
         })
         .text(function(d, i) {
             return d.value/app.currentExpendChartDataTotal > 0.05 ? Math.round(d.value/app.currentExpendChartDataTotal * 100) + "%" : '';
-        });    
+        });
 }
+
+// Used to form anchor hashes
+app.slugify = function(text) {
+    return text
+        .toLowerCase()
+        .replace(/[^\w ]+/g,'')
+        .replace(/ +/g,'-');
+};
 
 $(function()
 {
+    // Populate left menu
+    app.departments.forEach(function(department) {
+        $('#menu-list').append('<li><a href="' + app.slugify(department) + '">' + department + '<span class="right-arrow">&rarr;</span></a></li>');
+    });
+
+    // $('#menu-list>li').hover(function(e) {
+    //     $(this.children[0].children[0]).css('visibility: visible');
+    // }, function(e) {
+    //     $(this.children[0].children[0]).hide();
+    // });
+
     queue()
         .defer(d3.csv, "data/2012_General_Fund_Budget_Expenditures_v1.csv")
         .defer(d3.csv, "data/2012_Payroll_v1.csv")
