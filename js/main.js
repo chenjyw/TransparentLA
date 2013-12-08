@@ -2,6 +2,10 @@ app = {};
 
 app.departments = ["Aging", "Fire", "Information Technology Agency", "Los Angeles Convention Center", "Police", "Public Works - Street Services", "Transportation", "Zoo"];
 
+function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+}
+
 function renderExpendChart(dept) {
     $(".expenditures-chart").html("");
 
@@ -75,6 +79,26 @@ function renderExpendChart(dept) {
         });
 }
 
+function renderTopVendors(dept) {
+    $(".vendors-table table").html("");
+
+    var filteredData = _.filter(app.checkbookData, function(d) { return d["DEPARTMENT NAME"] == dept; });
+    var vendorGroups = _.groupBy(filteredData, function(d) { return d.vendor_name; });
+
+    var vendorTotals = _.map(vendorGroups, function(values, group) {
+            var vendorAmounts = _.map(values, function(vendor) { return +vendor.dollar_amount; }),
+                vendorTotal = _.reduce(vendorAmounts, function(p, v) { return p + v; }, 0);
+            return {vendorName: group, total: vendorTotal};
+        });
+
+    var rankedVendors = _.sortBy(vendorTotals, function(vendor) { return vendor.total; }).reverse().slice(0,10);
+    
+    rankedVendors.forEach(function(vendor) {
+        $(".vendors-table table").append('<tr><td>' + vendor.vendorName + '</td><td>$' + numberWithCommas(Math.round(vendor.total)) + '</td></tr>');
+    });
+
+}
+
 // Used to form anchor hashes
 app.slugify = function(text) {
     return text
@@ -108,11 +132,16 @@ $(function()
         app.checkbookData = checkbook;
 
         renderExpendChart("Aging");
+        renderTopVendors("Aging");
+
+
     }
 
     $(".department").on("click", function(e) {
         var $currentTarget = $(e.currentTarget);
-        renderExpendChart($currentTarget.attr("data-department-name"));
+        var dept = $currentTarget.attr("data-department-name");
+        renderExpendChart(dept);
+        renderTopVendors(dept);
         e.preventDefault();
     });
 
