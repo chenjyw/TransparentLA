@@ -12,19 +12,19 @@ function renderExpendChart(dept) {
     app.currentExpendChartData = _.filter(app.expendituresData, function(d) { return d.department_name == dept; });
     app.currentExpendChartDataTotal = _.reduce(_.map(app.currentExpendChartData, function(d) { return +d.total_expenditures; }), function(p, v) { return p + v;}, 0);
 
-    var w = 300,
-        h = 300,
+    var w = 242,
+        h = 242,
         r = Math.min(w, h) / 2,
-        labelr = r - 55, // radius for label anchor
+        labelr = r - 47, // radius for label anchor
         color = d3.scale.category20(),
         donut = d3.layout.pie(),
-        arc = d3.svg.arc().innerRadius(r * .55).outerRadius(r);
+        arc = d3.svg.arc().innerRadius(r * .38).outerRadius(r);
 
     var vis = d3.select(".expenditures-chart")
       .append("svg:svg")
         .data([app.currentExpendChartData])
-        .attr("width", w + 200)
-        .attr("height", h + 100);
+        .attr("width", w + 400)
+        .attr("height", h + 200);
 
     var arcs = vis.selectAll("g.arc")
         .data(donut.value(function(d) { return d.total_expenditures; }))
@@ -46,7 +46,7 @@ function renderExpendChart(dept) {
             return "translate(" + (x/h * labelr) +  ',' +
                (y/h * labelr) +  ")";
         })
-        .attr("dy", ".35em")
+        .attr("dy", ".14em")
         .attr("text-anchor", function(d) {
             // are we past the center?
             return (d.endAngle + d.startAngle)/2 > Math.PI ?
@@ -125,8 +125,8 @@ function renderTopJobs(dept) {
     var positionSalaries = _.map(filteredData, function(position) { return position['Regular Pay']; }).sort(function(a,b) { return a - b;});
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
-        width = 475 - margin.left - margin.right,
-        height = 200 - margin.top - margin.bottom;
+        width = 505 - margin.left - margin.right,
+        height = 215 - margin.top - margin.bottom;
 
     var x = d3.scale.linear()
         .domain([0, positionSalaries.length])
