@@ -12,7 +12,14 @@ body {
 	width: 100%;
 	background-color: #FFF;
 }
-
+a:active {
+	outline: none;
+}
+fieldset {
+	border: 0;
+	margin: 0;
+	padding: 0;
+}
 ::-moz-selection {
  background: #b3d4fc;
  text-shadow: none;
@@ -43,36 +50,19 @@ textarea {
 .chromeframe {
 	margin: 0.2em 0;
 	background: #ccc;
-	color: #000;
+	color: #64656a;
 	padding: 0.2em 0;
 }
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-
 .random {
 	color: black;
 }
 @font-face {
 	font-family: 'Nexa Bold';
-    src: url(../fonts/Nexa Bold.otf);
+ src: url(../fonts/Nexa Bold.otf);
 }
-/*#container {
-    margin: 0 auto;
-    width: 1200px;
-}*/
-
-/*#logo {
-    float: right;
-}*/
-
-.row {
-	width: 1200px;
-	margin: 0 auto;
-	padding-top: 10px;
-	padding-bottom: 10px;
-}
-
 header {
 	min-height: 1200px;
 	background-color: #f4f4f4;
@@ -80,136 +70,126 @@ header {
 	width: 24%;
 	margin-right: 4%;
 }
-
-#navWrapper{
-	margin-top: 6em;
+#navWrapper {
+	margin-top: 7.8125em;
 	margin-right: 1.56em;
 	margin-left: 1.56em;
 	width: 100%;
-    height: 100%;
 }
-
 ul {
-    padding-left: 20px;
+	padding-left: 20px;
 }
-
 nav h1 {
-	/*font-family: "Arial Black", Gadget, sans-serif;*/
-	font-size: 1em;
-	/*line-height: 145%;*/
-	color: #000;	
-    /*font-family: 'Nexa Bold';*/
-    font-family: 'Helvetica Neue', Helvetica, sans-serif;
-    /*letter-spacing: -0.5px;*/
-    font-size: 26px;
+	line-height: 145%;
+	color: #000;
+	font-family: "Arial Black", Gadget, sans-serif;
+	font-size: 1.618em;
+	margin-top: 0px;
+	text-transform: uppercase;
+	font-weight: 500;
 }
 nav a {
 	color: #64656A;
 	text-decoration: none;
-    font-size: 18px;
-	/*font-family: Arial, Helvetica, sans-serif;*/
-	/*text-align: left;*/
-    /*font-family: 'Helvetica Neue', Helvetica, sans-serif;*/
-    line-height: 32px;
-    letter-spacing: -0.5px;
+	font-size: 1em;
+	line-height: 145%;
+	font-family: Arial, Helvetica, sans-serif;
+	text-align: left;
 }
 #logo {
 	float: right;
 	margin-top: 1.75em;
 	margin-right: 1.56em;
-    height: 126px;
-    width: 377px;
+	height: 126px;
+	width: 377px;
 }
+#department-name {
+	position: absolute;
+	top: -3.3125em;
+	font-size: 1.618em;
+	font-weight: 300;
+	width: 500px;
+	color: #000;
+	}
 #columnOne {
-	min-height: 688px;
-	min-width: 350px;
 	width: 25%;
 	float: left;
-	/* background-color: #666; */
-	margin-top: 133px;
+	margin-top: 8.0625em;
 	margin-right: 5%;
-    position: relative;
+	position: relative;
 }
 #columnOne h1, #columnTwo h1 {
+	color:#64656a;
 	font-size: 1.618em;
-	padding-top: 40px;
-    padding-bottom: 10px;
-    margin-bottom: none !important;
+	margin-bottom: none !important;
 }
-#columnTwo h1 {
-    margin-top: 0;
-}
-
 #columnTwo {
 	width: 38%;
-	/*background-color: #999;*/
 	float: left;
+	position: relative;
+	top: -1.5625em;
 }
-#title {
-	font-family: 'Nexa Bold', 'Helvetica', sans-serif;
-	font-size: 40px;
-	background: -webkit-linear-gradient(#000, #CCC);
-	-webkit-background-clip: text;
-	-webkit-text-fill-color: transparent;
+#columnOne h2 {
+	font-size: 1.618em;
+	font-weight: 300;
+	color: #64656a;
+	margin-top: .5em;
 }
-
+#columnTwo h2 {
+	font-size: 1.618em;
+	font-weight: 300;
+	color: #64656a;
+	margin-top: 1em;
+}
 .right-arrow {
-    padding-left: 10px;
-    display: none;
+	padding-left: 10px;
+	display: none;
 }
-
 text.expend-dept, text.expend-percent {
+	font-size: .875em;
+	color: #64656A;
+	line-height: 145%;
+	font-family: Arial, Helvetica, sans-serif;
+}
+.expenditures-chart {
 	position: relative;
-	z-index: 1000;
-	font-weight: 100;
+	left: -81px;
+	width: 100%;
+	height: 0px;
+	padding-bottom: 100%;
 }
-
-div.expenditures-chart {
-	position: relative;
-	left:-100px;
+.expenditures-chart h1 {
+	font-size: 1.618em;
 }
-
-div.expenditures-chart h1 {
-    font-size: 1.618em;
+.salary-dist {
+	width: 100%;
 }
-
-div.salaries-table td, div.vendors-table td {
-    border-bottom: 1px #000 dotted;
-    padding-bottom: 5px;
-    padding-top: 5px;
-    line-height: 145%;
+.salaries-table td, div.vendors-table td {
+	border-bottom: 1px #64656a dotted;
+	padding-bottom: 0.5em;
+	padding-top: 0.5em;
+	line-height: 145%;
 }
-
 table {
-    width: 100%;
+	width: 100%;
+	margin-bottom: 4em;
 }
-
-div.salaries-table tr:nth-child(even), div.vendors-table tr:nth-child(even) {
-    background: #F2F2F2;
+.salaries-table tr:nth-child(even), .vendors-table tr:nth-child(even) {
+	background: #f4f4f4;
 }
-
 td {
-    font-size: 1em;
-    color: #64656A;
-    padding-left: 10px;
-    padding-right: 10px;
+	font-size: 1em;
+	color: #64656A;
+	padding-left: .5em;
+	padding-right: .5;
 }
-
-
 h1 {
-    padding-left: 0;
-    font-weight: 300;
+	padding-left: 0;
+	font-weight: 200;
+	margin-top: 0px;
+	padding-top: 0px;
 }
 
-#department-name {
-    position: absolute;
-    top: -32px;
-    font-size: 26px;
-    font-weight: thin;
-    border-bottom: 1px dotted #333;
-    width: 500px;
-    padding-bottom: 5px;
-}
 
 
 /* ==========================================================================
@@ -218,7 +198,7 @@ h1 {
 
 @media only screen and (min-width: 35em) {
 }
- @media print,  (-o-min-device-pixel-ratio: 5/4),  (-webkit-min-device-pixel-ratio: 1.25),  (min-resolution: 120dpi) {
+ @media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
 }
 /* ==========================================================================
    Helper classes
@@ -283,7 +263,7 @@ h1 {
 	box-shadow: none !important;
 	text-shadow: none !important;
 }
-a,  a:visited {
+a, a:visited {
 	text-decoration: underline;
 }
 a[href]:after {
@@ -296,17 +276,17 @@ abbr[title]:after {
      * Don't show links for images, or javascript/internal links
      */
 
-.ir a:after,  a[href^="javascript:"]:after,  a[href^="#"]:after {
+.ir a:after, a[href^="javascript:"]:after, a[href^="#"]:after {
 	content: "";
 }
-pre,  blockquote {
+pre, blockquote {
 	border: 1px solid #999;
 	page-break-inside: avoid;
 }
 thead {
 	display: table-header-group; /* h5bp.com/t */
 }
-tr,  img {
+tr, img {
 	page-break-inside: avoid;
 }
 img {
@@ -315,27 +295,23 @@ img {
  @page {
  margin: 0.5cm;
 }
-p,  h2,  h3 {
+p, h2, h3 {
 	orphans: 3;
 	widows: 3;
 }
-h2,  h3 {
+h2, h3 {
 	page-break-after: avoid;
 }
 }
-
-
 .bar rect {
-  fill: steelblue;
-  shape-rendering: crispEdges;
+	fill: steelblue;
+	shape-rendering: crispEdges;
 }
-
 .bar text {
-  fill: #fff;
+	fill: #fff;
 }
-
 .axis path, .axis line {
-  fill: none;
-  stroke: #000;
-  shape-rendering: crispEdges;
+	fill: none;
+	stroke: #000;
+	shape-rendering: crispEdges;
 }
