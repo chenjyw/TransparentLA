@@ -201,6 +201,8 @@ $(function()
         .await(dataLoaded);
 
     function dataLoaded(error, expenditures, payroll, checkbook) {
+        $('#department-name').text('Aging');
+
         app.expendituresData = expenditures;
         app.payrollData = payroll;
         app.checkbookData = checkbook;
