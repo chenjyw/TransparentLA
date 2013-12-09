@@ -64,7 +64,7 @@ textarea {
  src: url(../fonts/Nexa Bold.otf);
 }
 header {
-	min-height: 1200px;
+	min-height: 1264px;
 	background-color: #f4f4f4;
 	float: left;
 	width: 24%;
@@ -105,7 +105,7 @@ nav a {
 }
 #department-name {
 	position: absolute;
-	top: -3.3125em;
+	top: -1.9375em;
 	font-size: 1.618em;
 	font-weight: 300;
 	width: 500px;
@@ -114,7 +114,7 @@ nav a {
 #columnOne {
 	width: 25%;
 	float: left;
-	margin-top: 8.0625em;
+	margin-top: 11.1875em;
 	margin-right: 5%;
 	position: relative;
 }
@@ -127,7 +127,7 @@ nav a {
 	width: 38%;
 	float: left;
 	position: relative;
-	top: -1.5625em;
+	top: 1.5625em;
 }
 #columnOne h2 {
 	font-size: 1.618em;
@@ -139,7 +139,7 @@ nav a {
 	font-size: 1.618em;
 	font-weight: 300;
 	color: #64656a;
-	margin-top: 1em;
+	margin-top: 1.1875em;
 }
 .right-arrow {
 	padding-left: 10px;
