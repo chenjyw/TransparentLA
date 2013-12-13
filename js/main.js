@@ -125,7 +125,7 @@ function renderTopJobs(dept) {
     var positionSalaries = _.map(filteredData, function(position) { return position['Regular Pay']; }).sort(function(a,b) { return a - b;});
 
     var margin = {top: 0, right: 0, bottom: 0, left: 0},
-        width = 505 - margin.left - margin.right,
+        width = 432 - margin.left - margin.right,
         height = 215 - margin.top - margin.bottom;
 
     var x = d3.scale.linear()
