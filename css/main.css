@@ -6,10 +6,7 @@ html, button, input, select, textarea {
 	color: #222;
 }
 body {
-	font-size: 1em;
 	font-family: 'Helvetica Neue', 'Helvetica', sans-serif;
-	/*line-height: 1.4;*/
-	width: 100%;
 	background-color: #FFF;
 }
 a:active {
@@ -56,12 +53,13 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
-.random {
-	color: black;
+.wrapper {
+	width: 1140px;
 }
-@font-face {
-	font-family: 'Nexa Bold';
- src: url(../fonts/Nexa Bold.otf);
+ul {
+	margin: 0;
+	padding: 0;
+	list-style-type: none;
 }
 header {
 	min-height: 1264px;
@@ -72,18 +70,15 @@ header {
 }
 #navWrapper {
 	margin-top: 7.8125em;
-	margin-right: 1.56em;
-	margin-left: 1.56em;
+	margin-right: 0.82375em;
+	margin-left: 0.82375em;
 	width: 100%;
-}
-ul {
-	padding-left: 20px;
 }
 nav h1 {
 	line-height: 145%;
 	color: #000;
 	font-family: Arial, Helvetica, sans-serif;
-	font-size: 1.618em;
+	font-size: 1.38em;
 	margin-top: 0px;
 	text-transform: uppercase;
 	font-weight: 500;
@@ -91,11 +86,11 @@ nav h1 {
 nav a {
 	color: #64656A;
 	text-decoration: none;
-	font-size: 1em;
+	font-size: .875em;
 	line-height: 145%;
 	font-family: Arial, Helvetica, sans-serif;
 	text-align: left;
-}
+	}
 #logo {
 	float: right;
 	margin-top: 1.75em;
@@ -103,40 +98,47 @@ nav a {
 	height: 126px;
 	width: 377px;
 }
+
+.columnWrapper{
+	background-color: #FFf;
+	min-height: 1264px;
+	}
 #department-name {
 	position: absolute;
 	top: -1.9375em;
-	font-size: 1.618em;
+	font-size: 1.38em;
 	font-weight: 300;
 	width: 500px;
 	color: #000;
 	}
+	
+	
 #columnOne {
 	width: 25%;
 	float: left;
-	margin-top: 11.1875em;
+	margin-top: 10.6255em;
 	margin-right: 5%;
 	position: relative;
 }
 #columnOne h1, #columnTwo h1 {
 	color:#64656a;
-	font-size: 1.618em;
+	font-size: 1.38em;
 	margin-bottom: none !important;
 }
 #columnTwo {
-	width: 38%;
+    width: 38%; 
 	float: left;
 	position: relative;
-	top: 1.5625em;
+	top: 1.125em;
 }
 #columnOne h2 {
-	font-size: 1.618em;
+	font-size: 1.38em;
 	font-weight: 300;
 	color: #64656a;
 	margin-top: .5em;
 }
 #columnTwo h2 {
-	font-size: 1.618em;
+	font-size: 1.38em;
 	font-weight: 300;
 	color: #64656a;
 	margin-top: 1.1875em;
@@ -148,12 +150,11 @@ nav a {
 text.expend-dept, text.expend-percent {
 	font-size: .875em;
 	color: #64656A;
-	line-height: 145%;
 	font-family: Arial, Helvetica, sans-serif;
 }
 .expenditures-chart {
 	position: relative;
-	left: -81px;
+	left: -83px;
 	width: 100%;
 	height: 0px;
 	padding-bottom: 100%;
@@ -174,7 +175,7 @@ table {
 	width: 100%;
 	margin-bottom: 4em;
 }
-.salaries-table tr:nth-child(even), .vendors-table tr:nth-child(even) {
+tr:nth-child(even) {
 	background: #f4f4f4;
 }
 td {
@@ -195,10 +196,10 @@ h1 {
 /* ==========================================================================
    Media Queries
    ========================================================================== */
+ @media only screen and (min-width: 1024px) {
 
-@media only screen and (min-width: 35em) {
-}
- @media print, (-o-min-device-pixel-ratio: 5/4), (-webkit-min-device-pixel-ratio: 1.25), (min-resolution: 120dpi) {
+
+
 }
 /* ==========================================================================
    Helper classes
