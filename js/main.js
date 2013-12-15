@@ -46,7 +46,7 @@ function renderExpendChart(dept) {
             return "translate(" + (x/h * labelr) +  ',' +
                (y/h * labelr) +  ")";
         })
-        .attr("dy", ".14em")
+        .attr("dy", ".38em")
         .attr("text-anchor", function(d) {
             // are we past the center?
             return (d.endAngle + d.startAngle)/2 > Math.PI ?
