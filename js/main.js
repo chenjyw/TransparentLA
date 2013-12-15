@@ -12,8 +12,8 @@ function renderExpendChart(dept) {
     app.currentExpendChartData = _.filter(app.expendituresData, function(d) { return d.department_name == dept; });
     app.currentExpendChartDataTotal = _.reduce(_.map(app.currentExpendChartData, function(d) { return +d.total_expenditures; }), function(p, v) { return p + v;}, 0);
 
-    var w = 242,
-        h = 242,
+    var w = 214,
+        h = 214,
         r = Math.min(w, h) / 2,
         labelr = r - 47, // radius for label anchor
         color = d3.scale.category20(),
