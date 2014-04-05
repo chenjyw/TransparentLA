@@ -28,55 +28,32 @@ function renderExpendChart(dept) {
 
     var arcs = vis.selectAll("g.arc")
         .data(donut.value(function(d) { return d.total_expenditures; }))
-      .enter().append("svg:g")
+        .enter().append("svg:g")
         .attr("class", "arc")
-        .attr("transform", "translate(" + (r + 125) + "," + (r + 30) + ")");
+        .attr("transform", "translate(" + (r + 125) + "," + (r + 30) + ")")
+        //.attr('name', d.data.account_name)
+        .attr('name', function(d, i) {
+            return d.data.account_name;
+        }).
+        attr('percentage', function(d, i) {
+            return (d.value/app.currentExpendChartDataTotal * 100).toFixed(3);
+        }).
+        attr('title', '');
 
     arcs.append("svg:path")
         .attr("fill", function(d, i) { return color(i); })
         .attr("d", arc);
 
-    arcs.append("svg:text")
-        .attr("transform", function(d) {
-            var c = arc.centroid(d),
-                x = c[0],
-                y = c[1],
-                // pythagorean theorem for hypotenuse
-                h = Math.sqrt(x*x + y*y);
-            return "translate(" + (x/h * labelr) +  ',' +
-               (y/h * labelr) +  ")";
-        })
-        .attr("dy", ".38em")
-        .attr("text-anchor", function(d) {
-            // are we past the center?
-            return (d.endAngle + d.startAngle)/2 > Math.PI ?
-                "end" : "start";
-        })
-        .attr("class", "expend-dept")
-        .text(function(d, i) {
-            return d.value/app.currentExpendChartDataTotal > 0.05 ? d.data.account_name : '';
-        });
-
-    arcs.append("svg:text")
-        .attr("transform", function(d) {
-            var c = arc.centroid(d),
-                x = c[0],
-                y = c[1],
-                // pythagorean theorem for hypotenuse
-                h = Math.sqrt(x*x + y*y);
-            return "translate(" + (x/h * labelr) +  ',' +
-               (y/h * labelr) +  ")";
-        })
-        .attr("dy", "23px")
-        .attr("text-anchor", function(d) {
-            // are we past the center?
-            return (d.endAngle + d.startAngle)/2 > Math.PI ?
-                "end" : "start";
-        })
-        .attr("class", "expend-percent")
-        .text(function(d, i) {
-            return d.value/app.currentExpendChartDataTotal > 0.05 ? Math.round(d.value/app.currentExpendChartDataTotal * 100) + "%" : '';
-        });
+    $(".expenditures-chart svg g.arc").tooltip({
+        content: function() {
+            var text = $(this).attr('name') + ': ' + $(this).attr('percentage') + '% of total expenditures';
+            return text;
+            },
+        hide: false,
+        show: false,
+        tooltipClass: 'tooltip',
+        track: true
+    });
 }
 
 function renderTopVendors(dept) {
@@ -210,8 +187,6 @@ $(function()
         renderExpendChart("Aging");
         renderTopVendors("Aging");
         renderTopJobs("Aging");
-
-
     }
 
     $(".department").on("click", function(e) {
