@@ -53,6 +53,16 @@ textarea {
 /* ==========================================================================
    Author's custom styles
    ========================================================================== */
+#columnOne {
+	width: 25%;
+	float: left;
+	margin-top: 10.6255em;
+	margin-right: 5%;
+	position: relative;
+}
+
+
+
 .wrapper {
 	width: 1140px;
 }
@@ -111,8 +121,8 @@ nav a {
 	width: 500px;
 	color: #000;
 	}
-	
-	
+
+
 #columnOne {
 	width: 25%;
 	float: left;
@@ -126,7 +136,7 @@ nav a {
 	margin-bottom: none !important;
 }
 #columnTwo {
-    width: 38%; 
+    width: 38%;
 	float: left;
 	position: relative;
 	top: 1.125em;
@@ -191,7 +201,16 @@ h1 {
 	padding-top: 0px;
 }
 
-
+/* ==========================================================================
+   LA Controller Audit Styles custom styles
+   ========================================================================== */
+#columnOne {
+	width: 65%;
+	float: left;
+	margin-top: 10.6255em;
+	margin-right: 5%;
+	position: relative;
+}
 
 /* ==========================================================================
    Media Queries
