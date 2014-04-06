@@ -8,6 +8,7 @@
     Pierre Villanueva (@twit_herr)
     Robert Martin     (@welfareyacht)
     Torrey Nommesen   (@torrey)
+    Matthias Sieber   (@matzeone)
 
 
 # THANKS
@@ -19,3 +20,7 @@
     HTML5, CSS3
     jQuery, Modernizr
     D3.js
+
+    --> 2014
+    AngularJS
+    Twitter Bootstrap
